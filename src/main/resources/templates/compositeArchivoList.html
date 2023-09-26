@@ -11,6 +11,7 @@
 <table>
         <thead>
             <tr>
+                <th>Tipo Documento</th>
 				<th>Name Folder</th>
                 <th>Name File</th>
                 <th>Size</th>
@@ -19,6 +20,7 @@
         </thead>
         <tbody>
             <tr th:each="archivo : ${listaArchivos}">
+                <td th:text="${archivo.tipoDocumento}"></td>
                 <td th:text="${archivo.nombreArchivo}"></td>
                 <td th:text="${archivo.nombreCarpeta}"></td>
                 <td th:text="${archivo.tamano}"></td>
