@@ -10,26 +10,13 @@ import java.util.List;
  * 
  */
 public class Carpeta extends ComponentArchivo {
+	
 	private String nombreCarpeta;
 	List<ComponentArchivo> listComponenteArchivo = new ArrayList<ComponentArchivo>();
-	List<Carpeta> listCarpetas = new  ArrayList<Carpeta>();
-
-	public String getNombreCarpeta() {
-		return nombreCarpeta;
-	}
-
-	public void setNombreCarpeta(String nombreCarpeta) {
-		this.nombreCarpeta = nombreCarpeta;
-	}
-
-	public List<ComponentArchivo> getListComponenteArchivo() {
-		return listComponenteArchivo;
-	}
-
-	public void setListComponenteArchivo(List<ComponentArchivo> listComponenteArchivo) {
-		this.listComponenteArchivo = listComponenteArchivo;
-	}
-
+	
+	//List<Carpeta> listCarpetas = new  ArrayList<Carpeta>();
+	
+	
 	@Override
 	public int obtenerTamanoArchivo() {
 		// TODO Auto-generated method stub
@@ -60,4 +47,23 @@ public class Carpeta extends ComponentArchivo {
 	public void eliminarArchivo(ComponentArchivo componentArchivo) {
 		this.listComponenteArchivo.remove(componentArchivo);
 	}
+	
+
+	public String getNombreCarpeta() {
+		return nombreCarpeta;
+	}
+
+	public void setNombreCarpeta(String nombreCarpeta) {
+		this.nombreCarpeta = nombreCarpeta;
+	}
+
+	public List<ComponentArchivo> getListComponenteArchivo() {
+		return listComponenteArchivo;
+	}
+
+	public void setListComponenteArchivo(List<ComponentArchivo> listComponenteArchivo) {
+		this.listComponenteArchivo = listComponenteArchivo;
+	}
+
+
 }

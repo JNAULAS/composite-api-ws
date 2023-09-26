@@ -5,16 +5,22 @@
     <title>Lista Archivos Composite</title>
 </head>
 <body>
-<h1>Archivos Composiyte</h1>
-    <div th:each="elemento : ${listaArchivos}">
-        <div th:switch="${elemento.nombreArchivo}">
-            <div th:case="'simple'">
-                <span th:text="${elemento.tamanoArchivo}"></span>
-            </div>
-            <div th:case="'compuesto'">
-                <div th:replace="plantilla/compuesto :: compuesto-elemento (elemento=${elemento})"></div>
-            </div>
-        </div>
-    </div>
+<h1>List Files Composite</h1>
+<a th:href="@{/createFileForm}" class="btn btn-primary">Create File</a>
+<table>
+        <thead>
+            <tr>
+				<th>Name Folder</th>
+                <th>Name File</th>
+                <th>Size Folder</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="archivo : ${listaArchivos}">
+                <td th:text="${archivo.nombreArchivo}"></td>
+                <td th:text="${archivo.tamanoArchivo}"></td>
+            </tr>            
+        </tbody>
+    </table>
 </body>
 </html>
