@@ -58,6 +58,7 @@ public class CompositeController {
 		}
 		carpeta.agregarArchivo(archivo);
 		var archivoDTO = new ArchivoDTO();
+		archivoDTO.setTipoDocumento(archivoCompositeRequest.getTipoDocumento());
 		archivoDTO.setNombreArchivo(archivo.getNombreArchivo());
 		archivoDTO.setNombreCarpeta(carpeta.getNombreArchivo());
 		archivoDTO.setTamano(archivo.obtenerTamanoArchivo());
