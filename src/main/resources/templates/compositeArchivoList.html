@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Archivos Composite</title>
+</head>
+<body>
+<h1>Archivos Composiyte</h1>
+    <div th:each="elemento : ${listaArchivos}">
+        <div th:switch="${elemento.nombreArchivo}">
+            <div th:case="'simple'">
+                <span th:text="${elemento.tamanoArchivo}"></span>
+            </div>
+            <div th:case="'compuesto'">
+                <div th:replace="plantilla/compuesto :: compuesto-elemento (elemento=${elemento})"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
