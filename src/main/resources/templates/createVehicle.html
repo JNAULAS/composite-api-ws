@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <title>Create Vehicle</title>
+</head>
+<body>
+    <h1>Create Vehicle</h1>
+    <form action="/createVehicle" method="post" th:object="${vehicleDTO}">
+        <label for="type">Select Vehicle Type:</label>
+        <select id="tipo" name="tipo" th:field="*{tipo}">
+            <option th:each="tipoVehiculo : ${T(com.ups.vehiculos.backend.model.TipoVehiculo).values()}"
+                    th:value="${tipoVehiculo}" th:text="${tipoVehiculo}"></option>
+        </select>
+        <br>
+        <label for="placa">Placa:</label>
+        <input type="text" id="placa" name="placa" th:field="*{placa}">
+        <br>
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" name="modelo" th:field="*{modelo}">
+        <br>
+        <label for="marca">Marca:</label>
+        <input type="text" id="marca" name="marca" th:field="*{marca}">
+        <br>
+        <label for="anio">Año:</label>
+        <input type="text" id="anio" name="anio" th:field="*{anio}">
+        <br>
+        <label for="cilindraje">Cilindraje:</label>
+        <input type="text" id="cilindraje" name="cilindraje" th:field="*{cilindraje}">
+        <br>
+        <label for="valor">Valor:</label>
+        <input type="text" id="valor" name="valor" th:field="*{valor}">
+        <br>
+        <button type="submit">Create Vehicle</button>
+    </form>
+</body>
+</html>

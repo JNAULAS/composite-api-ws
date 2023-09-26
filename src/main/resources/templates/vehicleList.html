@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <title>Vehicle List</title>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <h1>Vehicle List</h1>
+    <a th:href="@{/createVehicleForm}" class="btn btn-primary">Create New Vehicle</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Placa</th>
+                <th>Modelo</th>
+                <th>Marca</th>
+                <th>Año</th>
+                <th>Cilindraje</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="vehicle : ${vehicles}">
+                <td th:text="${vehicle.id}"></td>
+                <td th:text="${vehicle.tipo}"></td>
+                <td th:text="${vehicle.placa}"></td>
+                <td th:text="${vehicle.modelo}"></td>
+                <td th:text="${vehicle.marca}"></td>
+                <td th:text="${vehicle.anio}"></td>
+                <td th:text="${vehicle.cilindraje}"></td>
+                <td th:text="${vehicle.valor}"></td>
+                <td>
+                    <a href="#" class="btn btn-primary"
+                        th:id="${vehicle.id}" 
+                        onclick="
+                        calculateMatricula(this)">Calculate Matricula</a>
+                        <!-- <a href="#" class="btn btn-primary" th:href="@{'/calculateMatricula?vehicleId=' + ${vehicle.id}}">Calculate Matricula</a> -->
+                </td>
+                <td>
+                    <span th:id="@{'matriculaResult_'+${vehicle.id}}"></span>
+                </td>
+            </tr>            
+        </tbody>
+    </table>
+</body>
+</html>
+
+<script>
+    // Function to calculate the matricula
+    function calculateMatricula(linkElement) {
+        var vehicleId = linkElement.getAttribute("id");
+        $.ajax({
+            type: 'GET',
+            url: '/calculateMatricula',
+            data: {
+                vehicleId: parseInt(vehicleId)
+            },
+            success: function (result) {
+                $('#matriculaResult_' + vehicleId).text('Matricula: $' + result.toFixed(2));
+
+                $(linkElement).addClass('disabled');
+            },
+            error: function () {
+                alert('Error calculating matricula.');
+            }
+        });
+    }
+</script>
