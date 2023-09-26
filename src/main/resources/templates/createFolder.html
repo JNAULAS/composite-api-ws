@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <title>Create Vehicle</title>
+</head>
+<body>
+    <h1>Create Vehicle</h1>
+    <form action="/createFolder" method="post" th:object="${}">
+        <label for="type">Select Vehicle Type:</label>
+        <select id="tipo" name="tipo" th:field="*{tipo}">
+            <option th:each="tipoDocumento : ${T(com.patrones.disenno.estructural.composite.model.TipoDocumento).values()}"
+                    th:value="${tipoDocumento}" th:text="${tipoDocumento}"></option>
+        </select>
+        <br>
+        <label for="placa">Placa:</label>
+        <input type="text" id="placa" name="placa" th:field="*{placa}">
+    </form>
+</body>
+</html>

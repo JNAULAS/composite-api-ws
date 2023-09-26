@@ -10,17 +10,8 @@ import java.util.List;
  * 
  */
 public class Carpeta extends ComponentArchivo {
-	private String nombreCarpeta;
 	List<ComponentArchivo> listComponenteArchivo = new ArrayList<ComponentArchivo>();
-	
 
-	public String getNombreCarpeta() {
-		return nombreCarpeta;
-	}
-
-	public void setNombreCarpeta(String nombreCarpeta) {
-		this.nombreCarpeta = nombreCarpeta;
-	}
 
 	public List<ComponentArchivo> getListComponenteArchivo() {
 		return listComponenteArchivo;
