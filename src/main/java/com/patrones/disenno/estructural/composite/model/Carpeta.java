@@ -11,16 +11,18 @@ import java.util.List;
  */
 public class Carpeta extends ComponentArchivo {
 	
-	private String nombreCarpeta;
-	List<ComponentArchivo> listComponenteArchivo = new ArrayList<ComponentArchivo>();
+	List<ComponentArchivo> listComponenteArchivo;
 	
-	//List<Carpeta> listCarpetas = new  ArrayList<Carpeta>();
-	
-	
+	public Carpeta (String nombre) {
+		if(this.listComponenteArchivo==null)
+			this.listComponenteArchivo= new ArrayList<ComponentArchivo>();
+		this.setNombreArchivo(nombre);
+		this.setTamanoArchivo(obtenerTamanoArchivo());
+	}
+
 	@Override
 	public int obtenerTamanoArchivo() {
-		// TODO Auto-generated method stub
-		int tamannoTotal = 0;
+		int tamannoTotal = 40;
 		for (ComponentArchivo componentArchivo : listComponenteArchivo) {
 			tamannoTotal += componentArchivo.getTamanoArchivo();
 		}
@@ -29,17 +31,9 @@ public class Carpeta extends ComponentArchivo {
 
 	@Override
 	public String obtenerNombreArchivo() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.getNombreArchivo();
 	}
 	
-	public Carpeta agregarCarpeta(String nombreCarpeta) {
-		Carpeta carpeta = new Carpeta();
-		carpeta.setNombreCarpeta(nombreCarpeta);
-		return carpeta;
-		
-	}
-
 	public void agregarArchivo(ComponentArchivo componentArchivo) {
 		this.listComponenteArchivo.add(componentArchivo);
 	}
@@ -47,23 +41,4 @@ public class Carpeta extends ComponentArchivo {
 	public void eliminarArchivo(ComponentArchivo componentArchivo) {
 		this.listComponenteArchivo.remove(componentArchivo);
 	}
-	
-
-	public String getNombreCarpeta() {
-		return nombreCarpeta;
-	}
-
-	public void setNombreCarpeta(String nombreCarpeta) {
-		this.nombreCarpeta = nombreCarpeta;
-	}
-
-	public List<ComponentArchivo> getListComponenteArchivo() {
-		return listComponenteArchivo;
-	}
-
-	public void setListComponenteArchivo(List<ComponentArchivo> listComponenteArchivo) {
-		this.listComponenteArchivo = listComponenteArchivo;
-	}
-
-
 }

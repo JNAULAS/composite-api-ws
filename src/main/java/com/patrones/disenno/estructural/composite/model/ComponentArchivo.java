@@ -12,7 +12,6 @@ public abstract class ComponentArchivo {
 	private int tamanoArchivo;
 	
 	
-	
 	public String getNombreArchivo() {
 		return nombreArchivo;
 	}
@@ -26,11 +25,7 @@ public abstract class ComponentArchivo {
 		this.tamanoArchivo = tamanoArchivo;
 	}
 	
-	/*Definicion metodos comunes para todas las subclases*/
-	//public abstract void agregarArchivo();
 	public abstract int obtenerTamanoArchivo();
 	public abstract String obtenerNombreArchivo();
-	//public abstract void eliminarArchivo();
 	
-
 }

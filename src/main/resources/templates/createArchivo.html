@@ -3,21 +3,21 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <meta charset="UTF-8">
-    <title>Create Vehicle</title>
+    <title>Crear Archivo</title>
 </head>
 <body>
-    <h1>Create Vehicle</h1>
+    <h1>Crear Archivo</h1>
     <form action="/createFile" method="post" th:object="${archivoCompositeRequest}">
-        <label for="type">Select File Type:</label>
+        <label for="type">Tipo de Archivo:</label>
         <select id="tipoDocumento" name="tipoDocumento" th:field="*{tipoDocumento}">
             <option th:each="tipoDocumento : ${T(com.patrones.disenno.estructural.composite.model.TipoDocumento).values()}"
                     th:value="${tipoDocumento}" th:text="${tipoDocumento}"></option>
         </select>
         <br>
-        <label for="nombreArchivo">Placa:</label>
+        <label for="nombreArchivo">Nombre Archivo:</label>
         <input type="text" id="nombreArchivo" name="nombreArchivo" th:field="*{nombreArchivo}">
         <br>
-        <button type="submit">Create File</button>
+        <button type="submit">Crear Archivo</button>
     </form>
 </body>
 </html>
